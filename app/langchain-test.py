@@ -1,14 +1,14 @@
-from langchain_community.chat_models import ChatOpenAI
+import os
+
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
-import os
+from langchain_openai import ChatOpenAI
+from utils.config import read_api_key, write_api_key_to_env
 
 
 def main():
     # read api key from '.deepseek' text file in home directory
-    os.environ["DEEPSEEK_API_KEY"] = (
-        open(os.path.expanduser("~/.deepseek"), "r").read().strip()
-    )
+    write_api_key_to_env(read_api_key())
 
     # Initialize the LLM
     llm = ChatOpenAI(
