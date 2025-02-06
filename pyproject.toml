@@ -8,6 +8,7 @@ dependencies = [
     "langchain-community>=0.3.16",
     "langchain-deepseek>=0.1.1",
     "litellm>=1.60.5",
+    "python-dotenv>=1.0.1",
     "ruff>=0.9.4",
     "smolagents>=1.7.0",
 ]
