@@ -2,7 +2,7 @@ import os
 
 from langchain.chains import LLMChain, SequentialChain
 from langchain.prompts import PromptTemplate
-from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 from utils.config import read_api_key, write_api_key_to_env
 
 
@@ -11,8 +11,7 @@ def main():
     write_api_key_to_env(read_api_key())
 
     # 1. 设置LLM模型
-    llm = ChatOpenAI(
-        base_url="https://api.deepseek.com/v1",
+    llm = ChatDeepSeek(
         api_key=os.getenv("DEEPSEEK_API_KEY"),
         temperature=1.3,
         model="deepseek-chat",

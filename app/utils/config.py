@@ -3,11 +3,15 @@ import os
 
 def read_api_key() -> str | None:
     try:
-        with open(os.path.expanduser("~/.deepseek"), "r") as f:
-            api_key = f.read().strip()
-            return api_key
+        with open(os.path.expanduser("~/.env"), "r") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("DEEPSEEK_API_KEY="):
+                    return line.split("=", 1)[1]
+            print("Error: DEEPSEEK_API_KEY not found in .env file.")
+            return None
     except FileNotFoundError:
-        print("Error: API key not found. Please set your API key in the .deepseek file.")
+        print("Error: .env file not found. Please create a .env file with DEEPSEEK_API_KEY.")
         return None
 
 
