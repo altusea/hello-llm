@@ -5,12 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "langchain-community>=0.3.16",
+    "langchain-community>=0.3.17",
     "langchain-deepseek>=0.1.1",
-    "litellm>=1.60.5",
+    "litellm>=1.61.0",
     "python-dotenv>=1.0.1",
-    "ruff>=0.9.4",
-    "smolagents>=1.7.0",
+    "ruff>=0.9.6",
+    "smolagents>=1.8.0",
 ]
 
 [tool.ruff]
