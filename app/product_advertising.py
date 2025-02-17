@@ -53,23 +53,17 @@ def main():
 
     # 4. 构建chains
     highlights_chain = LLMChain(
-        llm=llm, 
-        prompt=product_highlights_template,
-        output_key="highlights"
+        llm=llm, prompt=product_highlights_template, output_key="highlights"
     )
-    
-    ad_copy_chain = LLMChain(
-        llm=llm, 
-        prompt=ad_copy_template,
-        output_key="ad_copy"
-    )
+
+    ad_copy_chain = LLMChain(llm=llm, prompt=ad_copy_template, output_key="ad_copy")
 
     # 5. 构建SequentialChain
     product_chain = SequentialChain(
         chains=[highlights_chain, ad_copy_chain],
         input_variables=["product_name", "features"],
         output_variables=["highlights", "ad_copy"],
-        verbose=True
+        verbose=True,
     )
 
     product = {
