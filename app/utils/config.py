@@ -16,7 +16,8 @@ def read_api_key() -> str | None:
         return None
     except FileNotFoundError:
         print(
-            "Error: .env file not found. Please create a .env file with DEEPSEEK_API_KEY."
+            """Error: .env file not found.
+Please create a .env file with DEEPSEEK_API_KEY."""
         )
         return None
 
